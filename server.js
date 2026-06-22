@@ -141,7 +141,7 @@ app.post('/api/scrape', async (req, res) => {
 
     // 注意：把 userId 一併丟給 Python 處理
     // ✅ 這裡改用 ${scraperBaseUrl} 來取代寫死的 127.0.0.1
-    const response = await axios.post(`${scraperBaseUrl}${endpoint}`, {{
+    const response = await axios.post(`${scraperBaseUrl}${endpoint}`, {
       url: url,
       user_id: userId || 'mapper'
     });
