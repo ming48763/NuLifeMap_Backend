@@ -187,5 +187,16 @@ app.post('/api/markers/custom', async (req, res) => {
   }
 });
 
+// 🌟 新增：刪除特定地點 API
+app.delete('/api/markers/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Marker.findByIdAndDelete(id);
+    res.json({ success: true, message: "地點已成功刪除" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Node.js 伺服器已啟動於 Port ${PORT}`));
