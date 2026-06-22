@@ -140,7 +140,7 @@ app.post('/api/scrape', async (req, res) => {
     const scraperBaseUrl = process.env.SCRAPER_BASE_URL || 'http://127.0.0.1:8000';
 
     // 注意：把 userId 一併丟給 Python 處理
-    const response = await axios.post(`https://nulifemap-scraper.onrender.com${endpoint}`, { 
+    const response = await axios.post(`http://127.0.0.1:8000${endpoint}`, { 
       url: url,
       user_id: userId || 'mapper'
     });
